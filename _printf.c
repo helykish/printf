@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 					i++;
 					break;
 				case 's':
-					str_len = print_string(va_arg(args, char *));
+					str_len = print_string(args);
 					i++;
 					length += (str_len - 1);
 					break;
