@@ -1,19 +1,49 @@
 #include "main.h"
 /**
+ * _strlen - calculate string length
+ * @s: string passed to function
+ * Return: string length
+ */
+int _strlen(char *str)
+{
+        int count;
+
+        count = 0;
+        while (str[count] != '\0')
+        {
+                count++;
+        }
+        return (count);
+}
+/**
  * print_string - print string
  * @c: string to be printed
  * Return: string length
  */
-int print_string(char *c)
+int print_string(va_list args)
 {
 	int i;
+	char *str;
+	int str_len;
 
-	if (c)
+	str = va_arg(args, char *);
+	if (str == NULL)
 	{
-		for (i = 0; c[i] != '\0'; i++)
+		str = "(null)";
+		str_len = _strlen(str);
+		for (i = 0; i < str_len; i++)
 		{
-			_putchar(c[i]);
+			_putchar(str[i]);
 		}
+		return (str_len);
 	}
-	return (i);
+	else
+	{
+		str_len = _strlen(str);
+		for (i = 0; str[i] != '\0'; i++)
+		{
+			_putchar(str[i]);
+		}
+		return (str_len);
+	}
 }
