@@ -1,23 +1,23 @@
 #include "main.h"
 /**
  * _strlen - calculate string length
- * @s: string passed to function
+ * @str: string passed to function
  * Return: string length
  */
 int _strlen(char *str)
 {
-        int count;
+	int count;
 
-        count = 0;
-        while (str[count] != '\0')
-        {
-                count++;
-        }
-        return (count);
+	count = 0;
+	while (str[count] != '\0')
+	{
+		count++;
+	}
+	return (count);
 }
 /**
  * print_string - print string
- * @c: string to be printed
+ * @args: string to be printed
  * Return: string length
  */
 int print_string(va_list args)
