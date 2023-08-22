@@ -6,12 +6,9 @@
  */
 int _printf(const char *format, ...)
 {
-	int i;
-	int length;
-	int str_len;
+	int i, length = 0, str_len;
 	va_list args;
 
-	length = 0;
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	va_start(args, format);
@@ -35,11 +32,12 @@ int _printf(const char *format, ...)
 				case '%':
 					_putchar('%');
 					i++;
-				case ('d' || 'i'):
+				case 'i':
 					print_int(va_arg(args, int));
-					i++
-				default:
-					return (-1);
+					i++;
+				case 'd':
+					print_int(va_arg(args, int));
+					i++;
 			}
 		}
 		length += 1;
