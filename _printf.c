@@ -18,24 +18,26 @@ int _printf(const char *format, ...)
 		{
 			_putchar(format[i]);
 		}
-		else if (format[i] == '%')
+		else if (format[i + 1] == 'c')
 		{
-			switch (format[i + 1])
-			{
-				case 'c':
-					print_char(va_arg(args, int));
-					i++;
-				case 's':
-					str_len = print_string(args);
-					i++;
-					length += (str_len - 1);
-				case '%':
-					_putchar('%');
-					i++;
-				case ('i' || 'd'):
-					print_int(va_arg(args, int));
-					i++;
-			}
+			print_char(va_arg(args, int));
+			i++;
+		}
+		else if (format[i + 1] == 's')
+		{
+			str_len = print_string(args);
+			i++;
+			length += (str_len - 1);
+		}
+		else if (format[i + 1] == '%')
+		{
+			_putchar('%');
+			i++;
+		}
+		else if (format[i + 1] == 'i' || format[i + 1] == 'd')
+		{
+			print_int(va_arg(args, int));
+			i++;
 		}
 		length += 1;
 	}
