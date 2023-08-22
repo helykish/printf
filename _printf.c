@@ -32,10 +32,7 @@ int _printf(const char *format, ...)
 				case '%':
 					_putchar('%');
 					i++;
-				case 'i':
-					print_int(va_arg(args, int));
-					i++;
-				case 'd':
+				case ('i' || 'd'):
 					print_int(va_arg(args, int));
 					i++;
 			}
