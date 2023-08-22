@@ -9,4 +9,5 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int print_char(char c);
 int print_string(va_list args);
+void print_int(int num);
 #endif
