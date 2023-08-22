@@ -28,17 +28,21 @@ int _printf(const char *format, ...)
 				case 'c':
 					print_char(va_arg(args, int));
 					i++;
-					break;
 				case 's':
 					str_len = print_string(args);
 					i++;
 					length += (str_len - 1);
-					break;
 				case '%':
 					_putchar('%');
+					i++;
+				case ('d' || 'i'):
+					print_int(va_arg(args, int));
+					i++
+				default:
+					return (-1);
 			}
 		}
-		length++;
+		length += 1;
 	}
 	va_end(args);
 	return (length);
