@@ -27,9 +27,10 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i + 1] == 's')
 			{
-				str_len = print_string(args);
-				i++;
-				length += (str_len - 1);
+				char *str = va_arg(args, char *);
+				str_len = 0;
+				write(1, str, str_len);
+				length += str_len
 			}
 			else if (format[i + 1] == '%')
 			{
@@ -42,7 +43,6 @@ int _printf(const char *format, ...)
 				i++;
 			}
 		}
-		length += 1;
 	}
 	va_end(args);
 	return (length);
